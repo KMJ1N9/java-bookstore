@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gg.goods.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.gg.goods.entity.User">
+        <id property="uid" column="uid" jdbcType="CHAR"/>
+        <result property="loginname" column="loginname" jdbcType="VARCHAR"/>
+        <result property="loginpass" column="loginpass" jdbcType="VARCHAR"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="TINYINT"/>
+        <result property="activationcode" column="activationCode" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        uid,loginname,loginpass,
+        email,status,activationCode
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where uid = #{uid,jdbcType=CHAR}
+    </select>
+    <select id="selectUserByLoginname" resultType="com.gg.goods.entity.User">
+        select *
+        from `user`
+        where loginname = #{loginname}
+    </select>
+    <select id="selectUserByEmail" resultType="com.gg.goods.entity.User">
+        select *
+        from `user`
+        where email = #{email}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from user
+        where uid = #{uid,jdbcType=CHAR}
+    </delete>
+    <insert id="insert" parameterType="com.gg.goods.entity.User">
+        insert into `user`
+        ( uid, loginname, loginpass
+        , email, `status`, activationCode)
+        values ( #{uid,jdbcType=CHAR}, #{loginname,jdbcType=VARCHAR}, #{loginpass,jdbcType=VARCHAR}
+               , #{email,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{activationcode,jdbcType=CHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.gg.goods.entity.User">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uid != null">
+                uid,
+            </if>
+            <if test="loginname != null">
+                loginname,
+            </if>
+            <if test="loginpass != null">
+                loginpass,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="activationcode != null">
+                activationCode,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uid != null">
+                #{uid,jdbcType=CHAR},
+            </if>
+            <if test="loginname != null">
+                #{loginname,jdbcType=VARCHAR},
+            </if>
+            <if test="loginpass != null">
+                #{loginpass,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="activationcode != null">
+                #{activationcode,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.gg.goods.entity.User">
+        update user
+        <set>
+            <if test="loginname != null">
+                loginname = #{loginname,jdbcType=VARCHAR},
+            </if>
+            <if test="loginpass != null">
+                loginpass = #{loginpass,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="activationcode != null">
+                activationCode = #{activationcode,jdbcType=CHAR},
+            </if>
+        </set>
+        where uid = #{uid,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.gg.goods.entity.User">
+        update user
+        set loginname      = #{loginname,jdbcType=VARCHAR},
+            loginpass      = #{loginpass,jdbcType=VARCHAR},
+            email          = #{email,jdbcType=VARCHAR},
+            status         = #{status,jdbcType=TINYINT},
+            activationCode = #{activationcode,jdbcType=CHAR}
+        where uid = #{uid,jdbcType=CHAR}
+    </update>
+
+    <select id="selectUserByActivationCode" resultType="com.gg.goods.entity.User">
+        select *
+        from `user`
+        where activationCode = #{activationCode}
+    </select>
+    <select id="selectUserByLoginnameAndLoginpass" resultType="com.gg.goods.entity.User">
+        select *
+        from `user`
+        where loginname = #{loginname}
+          and loginpass = #{loginpass}
+    </select>
+
+    <!--根据uid查询用户信息-->
+    <select id="selectUserByUid" resultType="com.gg.goods.entity.User">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where uid = #{uid}
+    </select>
+
+    <!--修改用户信息（根据uid）-->
+    <update id="updateUserByUid" parameterType="com.gg.goods.entity.User">
+        update user
+        <set>
+            <if test="loginname != null">
+                loginname = #{loginname,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=TINYINT},
+            </if>
+        </set>
+        where uid = #{uid,jdbcType=CHAR}
+    </update>
+
+    <!--修改用户密码-->
+    <update id="updateUserPassword" parameterType="java.util.Map">
+        update user
+        set loginpass = #{newPassword,jdbcType=VARCHAR}
+        where uid = #{uid,jdbcType=CHAR}
+    </update>
+
+    <!--查询所有用户-->
+    <select id="selectAllUsers" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        order by uid
+    </select>
+
+    <!--根据用户名模糊查询用户-->
+    <select id="selectUsersByLoginname" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where loginname like concat('%', #{loginname}, '%')
+        order by uid
+    </select>
+</mapper>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gg.goods.mapper.AdminMapper">
+    <resultMap id="BaseResultMap" type="com.gg.goods.entity.Admin">
+        <!--@mbg.generated-->
+        <id column="adminId" jdbcType="CHAR" property="adminId"/>
+        <result column="adminname" jdbcType="VARCHAR" property="adminname"/>
+        <result column="adminpwd" jdbcType="VARCHAR" property="adminpwd"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        adminId, adminname, adminpwd
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from admin
+        where adminId = #{adminId,jdbcType=CHAR}
+    </select>
+
+    <select id="selectByAdminname" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from admin
+        where adminname = #{adminname,jdbcType=VARCHAR}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from admin
+        where adminId = #{adminId,jdbcType=CHAR}
+    </delete>
+
+    <insert id="insert" parameterType="com.gg.goods.entity.Admin">
+        <!--@mbg.generated-->
+        insert into admin (adminId, adminname, adminpwd)
+        values (#{adminId,jdbcType=CHAR}, #{adminname,jdbcType=VARCHAR}, #{adminpwd,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.gg.goods.entity.Admin">
+        <!--@mbg.generated-->
+        insert into admin
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="adminId != null">
+                adminId,
+            </if>
+            <if test="adminname != null">
+                adminname,
+            </if>
+            <if test="adminpwd != null">
+                adminpwd,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="adminId != null">
+                #{adminId,jdbcType=CHAR},
+            </if>
+            <if test="adminname != null">
+                #{adminname,jdbcType=VARCHAR},
+            </if>
+            <if test="adminpwd != null">
+                #{adminpwd,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.gg.goods.entity.Admin">
+        <!--@mbg.generated-->
+        update admin
+        <set>
+            <if test="adminname != null">
+                adminname = #{adminname,jdbcType=VARCHAR},
+            </if>
+            <if test="adminpwd != null">
+                adminpwd = #{adminpwd,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where adminId = #{adminId,jdbcType=CHAR}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.gg.goods.entity.Admin">
+        <!--@mbg.generated-->
+        update admin
+        set adminname = #{adminname,jdbcType=VARCHAR},
+        adminpwd = #{adminpwd,jdbcType=VARCHAR}
+        where adminId = #{adminId,jdbcType=CHAR}
+    </update>
+
+    <!-- 管理员信息结果映射（包含角色） -->
+    <resultMap id="AdminWithRolesResultMap" type="com.gg.goods.entity.Admin" extends="BaseResultMap">
+        <!-- 一对多关系：一个管理员拥有多个角色 -->
+        <collection property="roles" ofType="com.gg.goods.entity.Role">
+            <id column="roleId" property="roleId"/>
+            <result column="roleName" property="roleName"/>
+            <result column="description" property="description"/>
+        </collection>
+    </resultMap>
+
+    <!-- 根据管理员ID查询管理员信息（包含角色） -->
+    <select id="selectByAdminIdWithRoles" parameterType="java.lang.String" resultMap="AdminWithRolesResultMap">
+        SELECT a.adminId,
+               a.adminname,
+               a.adminpwd,
+               r.roleId,
+               r.roleName,
+               r.description
+        FROM admin a
+                 LEFT JOIN
+             admin_role ar ON a.adminId = ar.adminId
+                 LEFT JOIN
+             role r ON ar.roleId = r.roleId
+        WHERE a.adminId = #{adminId,jdbcType=VARCHAR}
+    </select>
+
+    <!-- 根据用户名查询管理员信息（包含角色） -->
+    <select id="selectByAdminnameWithRoles" parameterType="java.lang.String" resultMap="AdminWithRolesResultMap">
+        SELECT a.adminId,
+               a.adminname,
+               a.adminpwd,
+               r.roleId,
+               r.roleName,
+               r.description
+        FROM admin a
+                 LEFT JOIN
+             admin_role ar ON a.adminId = ar.adminId
+                 LEFT JOIN
+             role r ON ar.roleId = r.roleId
+        WHERE a.adminname = #{adminname,jdbcType=VARCHAR}
+    </select>
+</mapper>

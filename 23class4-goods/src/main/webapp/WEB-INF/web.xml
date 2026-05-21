@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         id="WebApp_ID" version="6.0">
+    <display-name>ssm</display-name>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <!-- 会话配置 -->
+    <session-config>
+        <!-- 设置会话超时时间为30分钟 -->
+        <session-timeout>30</session-timeout>
+        <!-- 设置会话Cookie为HttpOnly，防止XSS攻击窃取Cookie -->
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>false</secure>
+        </cookie-config>
+        <!-- 设置会话URL重写禁用，使用Cookie传输会话ID -->
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+    <!-- 会话固定保护过滤器配置 -->
+    <filter>
+        <filter-name>SessionFixationProtectionFilter</filter-name>
+        <filter-class>com.gg.goods.filters.SessionFixationProtectionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SessionFixationProtectionFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- CSRF过滤器配置 -->
+    <filter>
+        <filter-name>CSRFFilter</filter-name>
+        <filter-class>com.gg.goods.filters.CSRFFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CSRFFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- XSS过滤器配置 -->
+    <filter>
+        <filter-name>XSSFilter</filter-name>
+        <filter-class>com.gg.goods.filters.XSSFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>XSSFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>

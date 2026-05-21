@@ -1,0 +1,216 @@
+2025-12-30 00:12:54.754 [restartedMain] INFO  c.g.g.s.impl.CacheWarmUpService - 开始执行缓存预热任务
+2025-12-30 00:12:54.759 [pool-3-thread-1] INFO  c.g.g.s.impl.CacheWarmUpService - 开始预热分类缓存...
+2025-12-30 00:12:54.759 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 开始预热图书缓存...
+2025-12-30 00:12:54.759 [restartedMain] INFO  c.g.g.s.impl.CacheWarmUpService - 缓存预热任务提交完成，耗时: 1ms
+2025-12-30 00:12:54.780 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热热门图书 8 本
+2025-12-30 00:12:54.802 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热最新图书 8 本
+2025-12-30 00:12:54.913 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 1 (名称: 程序设计) 的图书 0 本
+2025-12-30 00:12:54.936 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 2 (名称: 办公室用书) 的图书 0 本
+2025-12-30 00:12:54.957 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 3 (名称: 图形 图像 多媒体) 的图书 0 本
+2025-12-30 00:12:54.980 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 4 (名称: 操作系统/系统开发) 的图书 0 本
+2025-12-30 00:12:55.004 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 5 (名称: 数据库) 的图书 0 本
+2025-12-30 00:12:55.037 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 6 (名称: 网络与数据通讯) 的图书 0 本
+2025-12-30 00:12:55.094 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 5F79D0D246AD4216AC04E9C5FAB3199E (名称: Java Javascript) 的图书 95 本
+2025-12-30 00:12:55.161 [pool-3-thread-1] INFO  c.g.g.s.impl.CacheWarmUpService - 分类缓存预热完成，耗时: 402ms
+2025-12-30 00:12:55.161 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 84ECE401C2904DBEA560D04A581A66D9 (名称: HTML XML) 的图书 0 本
+2025-12-30 00:12:55.201 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 922E6E2DB04143D39C9DDB26365B3EE8 (名称: C C++ VC VC++) 的图书 0 本
+2025-12-30 00:12:55.249 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C3F9FAAF4EA64857ACFAB0D9C8D0E446 (名称: PHP) 的图书 1 本
+2025-12-30 00:12:55.288 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C8E274EE5C99499080A98E24F0BD2E03 (名称: .NET) 的图书 1 本
+2025-12-30 00:12:55.333 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 D45D96DA359A4FEAB3AB4DCF2157FC06 (名称: JSP) 的图书 0 本
+2025-12-30 00:12:55.381 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 4D01FFF0CB94468EA907EF42780668AB (名称: 购买指南 组装指南 维修) 的图书 0 本
+2025-12-30 00:12:55.420 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 B92ED191DBE647BE8F75721FB231E207 (名称: 因特网 电子邮件) 的图书 0 本
+2025-12-30 00:12:55.453 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C4DD8CA232864B31A367EE135D86382C (名称: 计算机初级入门) 的图书 1 本
+2025-12-30 00:12:55.488 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 F5C091B3967442A2B35EFEFC4EF8746F (名称: 微软Office) 的图书 0 本
+2025-12-30 00:12:55.522 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 56AD72718C524147A2485E5F4A95A062 (名称: 3DS MAX) 的图书 2 本
+2025-12-30 00:12:55.561 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 57DE3C2DDA784B81844029A28217698C (名称: Dreamweaver) 的图书 0 本
+2025-12-30 00:12:55.595 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 65640549B80E40B1981CDEC269BFFCAD (名称: Photoshop) 的图书 0 本
+2025-12-30 00:12:55.629 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 757BDAB506A445EC8DEDA4CE04303B9F (名称: 网页设计) 的图书 0 本
+2025-12-30 00:12:55.666 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 B596ECE0F9BF40288F40A66B35551806 (名称: Flush) 的图书 0 本
+2025-12-30 00:12:55.707 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 DCAD0384A6444C048951C7B36C5D96EE (名称: Flash) 的图书 0 本
+2025-12-30 00:12:55.761 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 458795C27E7346A8A5F1B942319297E0 (名称: 系统开发) 的图书 0 本
+2025-12-30 00:12:55.805 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 65830AB237EF428BAE9B7ADC78A8D1F6 (名称: Unix) 的图书 0 本
+2025-12-30 00:12:55.866 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 FAB7B7F7084F4D57A0808ADC61117683 (名称: Windows) 的图书 0 本
+2025-12-30 00:12:55.913 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 96F209F79DB242E9B99CC1B98FAB01DB (名称: 数据库理论) 的图书 0 本
+2025-12-30 00:12:55.949 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 F4FBD087EB054CA1896093F172AC33D9 (名称: 数据仓库与数据挖掘) 的图书 0 本
+2025-12-30 00:12:55.994 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 A9CFBED0F77746C5BD751F2502FAB2CD (名称: 电子商务 电子政务) 的图书 1 本
+2025-12-30 00:12:56.010 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 图书缓存预热完成，耗时: 1251ms
+2025-12-30 08:26:56.815 [restartedMain] INFO  c.g.g.s.impl.CacheWarmUpService - 开始执行缓存预热任务
+2025-12-30 08:26:56.817 [pool-2-thread-1] INFO  c.g.g.s.impl.CacheWarmUpService - 开始预热分类缓存...
+2025-12-30 08:26:56.817 [restartedMain] INFO  c.g.g.s.impl.CacheWarmUpService - 缓存预热任务提交完成，耗时: 1ms
+2025-12-30 08:26:56.817 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 开始预热图书缓存...
+2025-12-30 08:26:56.842 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热热门图书 8 本
+2025-12-30 08:26:56.865 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热最新图书 8 本
+2025-12-30 08:26:56.945 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 1 (名称: 程序设计) 的图书 0 本
+2025-12-30 08:26:56.962 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 2 (名称: 办公室用书) 的图书 0 本
+2025-12-30 08:26:56.978 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 3 (名称: 图形 图像 多媒体) 的图书 0 本
+2025-12-30 08:26:56.991 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 4 (名称: 操作系统/系统开发) 的图书 0 本
+2025-12-30 08:26:57.008 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 5 (名称: 数据库) 的图书 0 本
+2025-12-30 08:26:57.027 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 6 (名称: 网络与数据通讯) 的图书 0 本
+2025-12-30 08:26:57.062 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 5F79D0D246AD4216AC04E9C5FAB3199E (名称: Java Javascript) 的图书 95 本
+2025-12-30 08:26:57.097 [pool-2-thread-1] INFO  c.g.g.s.impl.CacheWarmUpService - 分类缓存预热完成，耗时: 280ms
+2025-12-30 08:26:57.098 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 84ECE401C2904DBEA560D04A581A66D9 (名称: HTML XML) 的图书 0 本
+2025-12-30 08:26:57.125 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 922E6E2DB04143D39C9DDB26365B3EE8 (名称: C C++ VC VC++) 的图书 0 本
+2025-12-30 08:26:57.151 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C3F9FAAF4EA64857ACFAB0D9C8D0E446 (名称: PHP) 的图书 1 本
+2025-12-30 08:26:57.182 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C8E274EE5C99499080A98E24F0BD2E03 (名称: .NET) 的图书 1 本
+2025-12-30 08:26:57.215 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 D45D96DA359A4FEAB3AB4DCF2157FC06 (名称: JSP) 的图书 0 本
+2025-12-30 08:26:57.243 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 4D01FFF0CB94468EA907EF42780668AB (名称: 购买指南 组装指南 维修) 的图书 0 本
+2025-12-30 08:26:57.267 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 B92ED191DBE647BE8F75721FB231E207 (名称: 因特网 电子邮件) 的图书 0 本
+2025-12-30 08:26:57.292 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C4DD8CA232864B31A367EE135D86382C (名称: 计算机初级入门) 的图书 1 本
+2025-12-30 08:26:57.313 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 F5C091B3967442A2B35EFEFC4EF8746F (名称: 微软Office) 的图书 0 本
+2025-12-30 08:26:57.339 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 56AD72718C524147A2485E5F4A95A062 (名称: 3DS MAX) 的图书 2 本
+2025-12-30 08:26:57.366 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 57DE3C2DDA784B81844029A28217698C (名称: Dreamweaver) 的图书 0 本
+2025-12-30 08:26:57.391 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 65640549B80E40B1981CDEC269BFFCAD (名称: Photoshop) 的图书 0 本
+2025-12-30 08:26:57.420 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 757BDAB506A445EC8DEDA4CE04303B9F (名称: 网页设计) 的图书 0 本
+2025-12-30 08:26:57.447 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 B596ECE0F9BF40288F40A66B35551806 (名称: Flush) 的图书 0 本
+2025-12-30 08:26:57.475 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 DCAD0384A6444C048951C7B36C5D96EE (名称: Flash) 的图书 0 本
+2025-12-30 08:26:57.504 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 458795C27E7346A8A5F1B942319297E0 (名称: 系统开发) 的图书 0 本
+2025-12-30 08:26:57.534 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 65830AB237EF428BAE9B7ADC78A8D1F6 (名称: Unix) 的图书 0 本
+2025-12-30 08:26:57.570 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 FAB7B7F7084F4D57A0808ADC61117683 (名称: Windows) 的图书 0 本
+2025-12-30 08:26:57.603 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 96F209F79DB242E9B99CC1B98FAB01DB (名称: 数据库理论) 的图书 0 本
+2025-12-30 08:26:57.631 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 F4FBD087EB054CA1896093F172AC33D9 (名称: 数据仓库与数据挖掘) 的图书 0 本
+2025-12-30 08:26:57.660 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 A9CFBED0F77746C5BD751F2502FAB2CD (名称: 电子商务 电子政务) 的图书 1 本
+2025-12-30 08:26:57.671 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 图书缓存预热完成，耗时: 854ms
+2025-12-30 08:29:02.909 [restartedMain] INFO  c.g.g.s.impl.CacheWarmUpService - 开始执行缓存预热任务
+2025-12-30 08:29:02.909 [restartedMain] INFO  c.g.g.s.impl.CacheWarmUpService - 缓存预热任务提交完成，耗时: 0ms
+2025-12-30 08:29:02.909 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 开始预热图书缓存...
+2025-12-30 08:29:02.911 [pool-2-thread-1] INFO  c.g.g.s.impl.CacheWarmUpService - 开始预热分类缓存...
+2025-12-30 08:29:02.925 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热热门图书 8 本
+2025-12-30 08:29:02.939 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热最新图书 8 本
+2025-12-30 08:29:03.014 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 1 (名称: 程序设计) 的图书 0 本
+2025-12-30 08:29:03.028 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 2 (名称: 办公室用书) 的图书 0 本
+2025-12-30 08:29:03.040 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 3 (名称: 图形 图像 多媒体) 的图书 0 本
+2025-12-30 08:29:03.055 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 4 (名称: 操作系统/系统开发) 的图书 0 本
+2025-12-30 08:29:03.069 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 5 (名称: 数据库) 的图书 0 本
+2025-12-30 08:29:03.081 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 6 (名称: 网络与数据通讯) 的图书 0 本
+2025-12-30 08:29:03.110 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 5F79D0D246AD4216AC04E9C5FAB3199E (名称: Java Javascript) 的图书 95 本
+2025-12-30 08:29:03.149 [pool-2-thread-1] INFO  c.g.g.s.impl.CacheWarmUpService - 分类缓存预热完成，耗时: 240ms
+2025-12-30 08:29:03.152 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 84ECE401C2904DBEA560D04A581A66D9 (名称: HTML XML) 的图书 0 本
+2025-12-30 08:29:03.183 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 922E6E2DB04143D39C9DDB26365B3EE8 (名称: C C++ VC VC++) 的图书 0 本
+2025-12-30 08:29:03.208 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C3F9FAAF4EA64857ACFAB0D9C8D0E446 (名称: PHP) 的图书 1 本
+2025-12-30 08:29:03.231 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C8E274EE5C99499080A98E24F0BD2E03 (名称: .NET) 的图书 1 本
+2025-12-30 08:29:03.257 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 D45D96DA359A4FEAB3AB4DCF2157FC06 (名称: JSP) 的图书 0 本
+2025-12-30 08:29:03.282 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 4D01FFF0CB94468EA907EF42780668AB (名称: 购买指南 组装指南 维修) 的图书 0 本
+2025-12-30 08:29:03.309 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 B92ED191DBE647BE8F75721FB231E207 (名称: 因特网 电子邮件) 的图书 0 本
+2025-12-30 08:29:03.335 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C4DD8CA232864B31A367EE135D86382C (名称: 计算机初级入门) 的图书 1 本
+2025-12-30 08:29:03.359 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 F5C091B3967442A2B35EFEFC4EF8746F (名称: 微软Office) 的图书 0 本
+2025-12-30 08:29:03.383 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 56AD72718C524147A2485E5F4A95A062 (名称: 3DS MAX) 的图书 2 本
+2025-12-30 08:29:03.407 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 57DE3C2DDA784B81844029A28217698C (名称: Dreamweaver) 的图书 0 本
+2025-12-30 08:29:03.432 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 65640549B80E40B1981CDEC269BFFCAD (名称: Photoshop) 的图书 0 本
+2025-12-30 08:29:03.464 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 757BDAB506A445EC8DEDA4CE04303B9F (名称: 网页设计) 的图书 0 本
+2025-12-30 08:29:03.499 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 B596ECE0F9BF40288F40A66B35551806 (名称: Flush) 的图书 0 本
+2025-12-30 08:29:03.535 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 DCAD0384A6444C048951C7B36C5D96EE (名称: Flash) 的图书 0 本
+2025-12-30 08:29:03.565 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 458795C27E7346A8A5F1B942319297E0 (名称: 系统开发) 的图书 0 本
+2025-12-30 08:29:03.596 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 65830AB237EF428BAE9B7ADC78A8D1F6 (名称: Unix) 的图书 0 本
+2025-12-30 08:29:03.621 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 FAB7B7F7084F4D57A0808ADC61117683 (名称: Windows) 的图书 0 本
+2025-12-30 08:29:03.646 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 96F209F79DB242E9B99CC1B98FAB01DB (名称: 数据库理论) 的图书 0 本
+2025-12-30 08:29:03.671 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 F4FBD087EB054CA1896093F172AC33D9 (名称: 数据仓库与数据挖掘) 的图书 0 本
+2025-12-30 08:29:03.696 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 A9CFBED0F77746C5BD751F2502FAB2CD (名称: 电子商务 电子政务) 的图书 1 本
+2025-12-30 08:29:03.706 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 图书缓存预热完成，耗时: 797ms
+2025-12-30 08:34:53.524 [restartedMain] INFO  c.g.g.s.impl.CacheWarmUpService - 开始执行缓存预热任务
+2025-12-30 08:34:53.525 [pool-3-thread-1] INFO  c.g.g.s.impl.CacheWarmUpService - 开始预热分类缓存...
+2025-12-30 08:34:53.525 [restartedMain] INFO  c.g.g.s.impl.CacheWarmUpService - 缓存预热任务提交完成，耗时: 0ms
+2025-12-30 08:34:53.527 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 开始预热图书缓存...
+2025-12-30 08:34:53.550 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热热门图书 8 本
+2025-12-30 08:34:53.573 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热最新图书 8 本
+2025-12-30 08:34:53.680 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 1 (名称: 程序设计) 的图书 0 本
+2025-12-30 08:34:53.700 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 2 (名称: 办公室用书) 的图书 0 本
+2025-12-30 08:34:53.718 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 3 (名称: 图形 图像 多媒体) 的图书 0 本
+2025-12-30 08:34:53.743 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 4 (名称: 操作系统/系统开发) 的图书 0 本
+2025-12-30 08:34:53.766 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 5 (名称: 数据库) 的图书 0 本
+2025-12-30 08:34:53.783 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 6 (名称: 网络与数据通讯) 的图书 0 本
+2025-12-30 08:34:53.819 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 5F79D0D246AD4216AC04E9C5FAB3199E (名称: Java Javascript) 的图书 95 本
+2025-12-30 08:34:53.849 [pool-3-thread-1] INFO  c.g.g.s.impl.CacheWarmUpService - 分类缓存预热完成，耗时: 324ms
+2025-12-30 08:34:53.863 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 84ECE401C2904DBEA560D04A581A66D9 (名称: HTML XML) 的图书 0 本
+2025-12-30 08:34:53.897 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 922E6E2DB04143D39C9DDB26365B3EE8 (名称: C C++ VC VC++) 的图书 0 本
+2025-12-30 08:34:53.926 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C3F9FAAF4EA64857ACFAB0D9C8D0E446 (名称: PHP) 的图书 1 本
+2025-12-30 08:34:53.956 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C8E274EE5C99499080A98E24F0BD2E03 (名称: .NET) 的图书 1 本
+2025-12-30 08:34:53.989 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 D45D96DA359A4FEAB3AB4DCF2157FC06 (名称: JSP) 的图书 0 本
+2025-12-30 08:34:54.018 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 4D01FFF0CB94468EA907EF42780668AB (名称: 购买指南 组装指南 维修) 的图书 0 本
+2025-12-30 08:34:54.048 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 B92ED191DBE647BE8F75721FB231E207 (名称: 因特网 电子邮件) 的图书 0 本
+2025-12-30 08:34:54.075 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C4DD8CA232864B31A367EE135D86382C (名称: 计算机初级入门) 的图书 1 本
+2025-12-30 08:34:54.101 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 F5C091B3967442A2B35EFEFC4EF8746F (名称: 微软Office) 的图书 0 本
+2025-12-30 08:34:54.131 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 56AD72718C524147A2485E5F4A95A062 (名称: 3DS MAX) 的图书 2 本
+2025-12-30 08:34:54.165 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 57DE3C2DDA784B81844029A28217698C (名称: Dreamweaver) 的图书 0 本
+2025-12-30 08:34:54.198 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 65640549B80E40B1981CDEC269BFFCAD (名称: Photoshop) 的图书 0 本
+2025-12-30 08:34:54.231 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 757BDAB506A445EC8DEDA4CE04303B9F (名称: 网页设计) 的图书 0 本
+2025-12-30 08:34:54.262 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 B596ECE0F9BF40288F40A66B35551806 (名称: Flush) 的图书 0 本
+2025-12-30 08:34:54.291 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 DCAD0384A6444C048951C7B36C5D96EE (名称: Flash) 的图书 0 本
+2025-12-30 08:34:54.323 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 458795C27E7346A8A5F1B942319297E0 (名称: 系统开发) 的图书 0 本
+2025-12-30 08:34:54.354 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 65830AB237EF428BAE9B7ADC78A8D1F6 (名称: Unix) 的图书 0 本
+2025-12-30 08:34:54.390 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 FAB7B7F7084F4D57A0808ADC61117683 (名称: Windows) 的图书 0 本
+2025-12-30 08:34:54.425 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 96F209F79DB242E9B99CC1B98FAB01DB (名称: 数据库理论) 的图书 0 本
+2025-12-30 08:34:54.456 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 F4FBD087EB054CA1896093F172AC33D9 (名称: 数据仓库与数据挖掘) 的图书 0 本
+2025-12-30 08:34:54.490 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 A9CFBED0F77746C5BD751F2502FAB2CD (名称: 电子商务 电子政务) 的图书 1 本
+2025-12-30 08:34:54.502 [pool-3-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 图书缓存预热完成，耗时: 975ms
+2025-12-30 08:46:40.594 [restartedMain] INFO  c.g.g.s.impl.CacheWarmUpService - 开始执行缓存预热任务
+2025-12-30 08:46:40.596 [restartedMain] INFO  c.g.g.s.impl.CacheWarmUpService - 缓存预热任务提交完成，耗时: 1ms
+2025-12-30 08:46:40.596 [pool-2-thread-1] INFO  c.g.g.s.impl.CacheWarmUpService - 开始预热分类缓存...
+2025-12-30 08:46:40.597 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 开始预热图书缓存...
+2025-12-30 08:46:40.616 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热热门图书 8 本
+2025-12-30 08:46:40.632 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热最新图书 8 本
+2025-12-30 08:46:40.695 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 1 (名称: 程序设计) 的图书 0 本
+2025-12-30 08:46:40.706 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 2 (名称: 办公室用书) 的图书 0 本
+2025-12-30 08:46:40.719 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 3 (名称: 图形 图像 多媒体) 的图书 0 本
+2025-12-30 08:46:40.733 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 4 (名称: 操作系统/系统开发) 的图书 0 本
+2025-12-30 08:46:40.746 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 5 (名称: 数据库) 的图书 0 本
+2025-12-30 08:46:40.760 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 6 (名称: 网络与数据通讯) 的图书 0 本
+2025-12-30 08:46:40.789 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 5F79D0D246AD4216AC04E9C5FAB3199E (名称: Java Javascript) 的图书 95 本
+2025-12-30 08:46:40.812 [pool-2-thread-1] INFO  c.g.g.s.impl.CacheWarmUpService - 分类缓存预热完成，耗时: 216ms
+2025-12-30 08:46:40.818 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 84ECE401C2904DBEA560D04A581A66D9 (名称: HTML XML) 的图书 0 本
+2025-12-30 08:46:40.842 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 922E6E2DB04143D39C9DDB26365B3EE8 (名称: C C++ VC VC++) 的图书 0 本
+2025-12-30 08:46:40.867 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C3F9FAAF4EA64857ACFAB0D9C8D0E446 (名称: PHP) 的图书 1 本
+2025-12-30 08:46:40.892 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C8E274EE5C99499080A98E24F0BD2E03 (名称: .NET) 的图书 1 本
+2025-12-30 08:46:40.922 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 D45D96DA359A4FEAB3AB4DCF2157FC06 (名称: JSP) 的图书 0 本
+2025-12-30 08:46:40.960 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 4D01FFF0CB94468EA907EF42780668AB (名称: 购买指南 组装指南 维修) 的图书 0 本
+2025-12-30 08:46:40.993 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 B92ED191DBE647BE8F75721FB231E207 (名称: 因特网 电子邮件) 的图书 0 本
+2025-12-30 08:46:41.026 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C4DD8CA232864B31A367EE135D86382C (名称: 计算机初级入门) 的图书 1 本
+2025-12-30 08:46:41.057 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 F5C091B3967442A2B35EFEFC4EF8746F (名称: 微软Office) 的图书 0 本
+2025-12-30 08:46:41.089 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 56AD72718C524147A2485E5F4A95A062 (名称: 3DS MAX) 的图书 2 本
+2025-12-30 08:46:41.116 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 57DE3C2DDA784B81844029A28217698C (名称: Dreamweaver) 的图书 0 本
+2025-12-30 08:46:41.141 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 65640549B80E40B1981CDEC269BFFCAD (名称: Photoshop) 的图书 0 本
+2025-12-30 08:46:41.168 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 757BDAB506A445EC8DEDA4CE04303B9F (名称: 网页设计) 的图书 0 本
+2025-12-30 08:46:41.195 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 B596ECE0F9BF40288F40A66B35551806 (名称: Flush) 的图书 0 本
+2025-12-30 08:46:41.222 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 DCAD0384A6444C048951C7B36C5D96EE (名称: Flash) 的图书 0 本
+2025-12-30 08:46:41.248 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 458795C27E7346A8A5F1B942319297E0 (名称: 系统开发) 的图书 0 本
+2025-12-30 08:46:41.274 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 65830AB237EF428BAE9B7ADC78A8D1F6 (名称: Unix) 的图书 0 本
+2025-12-30 08:46:41.301 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 FAB7B7F7084F4D57A0808ADC61117683 (名称: Windows) 的图书 0 本
+2025-12-30 08:46:41.327 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 96F209F79DB242E9B99CC1B98FAB01DB (名称: 数据库理论) 的图书 0 本
+2025-12-30 08:46:41.351 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 F4FBD087EB054CA1896093F172AC33D9 (名称: 数据仓库与数据挖掘) 的图书 0 本
+2025-12-30 08:46:41.384 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 A9CFBED0F77746C5BD751F2502FAB2CD (名称: 电子商务 电子政务) 的图书 1 本
+2025-12-30 08:46:41.395 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 图书缓存预热完成，耗时: 799ms
+2025-12-30 08:57:53.483 [restartedMain] INFO  c.g.g.s.impl.CacheWarmUpService - 开始执行缓存预热任务
+2025-12-30 08:57:53.485 [restartedMain] INFO  c.g.g.s.impl.CacheWarmUpService - 缓存预热任务提交完成，耗时: 0ms
+2025-12-30 08:57:53.486 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 开始预热图书缓存...
+2025-12-30 08:57:53.486 [pool-2-thread-1] INFO  c.g.g.s.impl.CacheWarmUpService - 开始预热分类缓存...
+2025-12-30 08:57:53.509 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热热门图书 8 本
+2025-12-30 08:57:53.533 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热最新图书 8 本
+2025-12-30 08:57:53.618 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 1 (名称: 程序设计) 的图书 0 本
+2025-12-30 08:57:53.637 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 2 (名称: 办公室用书) 的图书 0 本
+2025-12-30 08:57:53.658 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 3 (名称: 图形 图像 多媒体) 的图书 0 本
+2025-12-30 08:57:53.676 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 4 (名称: 操作系统/系统开发) 的图书 0 本
+2025-12-30 08:57:53.695 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 5 (名称: 数据库) 的图书 0 本
+2025-12-30 08:57:53.712 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 6 (名称: 网络与数据通讯) 的图书 0 本
+2025-12-30 08:57:53.745 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 5F79D0D246AD4216AC04E9C5FAB3199E (名称: Java Javascript) 的图书 95 本
+2025-12-30 08:57:53.776 [pool-2-thread-1] INFO  c.g.g.s.impl.CacheWarmUpService - 分类缓存预热完成，耗时: 291ms
+2025-12-30 08:57:53.778 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 84ECE401C2904DBEA560D04A581A66D9 (名称: HTML XML) 的图书 0 本
+2025-12-30 08:57:53.802 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 922E6E2DB04143D39C9DDB26365B3EE8 (名称: C C++ VC VC++) 的图书 0 本
+2025-12-30 08:57:53.830 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C3F9FAAF4EA64857ACFAB0D9C8D0E446 (名称: PHP) 的图书 1 本
+2025-12-30 08:57:53.857 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C8E274EE5C99499080A98E24F0BD2E03 (名称: .NET) 的图书 1 本
+2025-12-30 08:57:53.886 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 D45D96DA359A4FEAB3AB4DCF2157FC06 (名称: JSP) 的图书 0 本
+2025-12-30 08:57:53.915 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 4D01FFF0CB94468EA907EF42780668AB (名称: 购买指南 组装指南 维修) 的图书 0 本
+2025-12-30 08:57:53.938 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 B92ED191DBE647BE8F75721FB231E207 (名称: 因特网 电子邮件) 的图书 0 本
+2025-12-30 08:57:53.961 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 C4DD8CA232864B31A367EE135D86382C (名称: 计算机初级入门) 的图书 1 本
+2025-12-30 08:57:53.986 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 F5C091B3967442A2B35EFEFC4EF8746F (名称: 微软Office) 的图书 0 本
+2025-12-30 08:57:54.025 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 56AD72718C524147A2485E5F4A95A062 (名称: 3DS MAX) 的图书 2 本
+2025-12-30 08:57:54.058 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 57DE3C2DDA784B81844029A28217698C (名称: Dreamweaver) 的图书 0 本
+2025-12-30 08:57:54.094 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 65640549B80E40B1981CDEC269BFFCAD (名称: Photoshop) 的图书 0 本
+2025-12-30 08:57:54.128 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 757BDAB506A445EC8DEDA4CE04303B9F (名称: 网页设计) 的图书 0 本
+2025-12-30 08:57:54.156 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 B596ECE0F9BF40288F40A66B35551806 (名称: Flush) 的图书 0 本
+2025-12-30 08:57:54.181 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 DCAD0384A6444C048951C7B36C5D96EE (名称: Flash) 的图书 0 本
+2025-12-30 08:57:54.203 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 458795C27E7346A8A5F1B942319297E0 (名称: 系统开发) 的图书 0 本
+2025-12-30 08:57:54.226 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 65830AB237EF428BAE9B7ADC78A8D1F6 (名称: Unix) 的图书 0 本
+2025-12-30 08:57:54.256 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 FAB7B7F7084F4D57A0808ADC61117683 (名称: Windows) 的图书 0 本
+2025-12-30 08:57:54.287 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 96F209F79DB242E9B99CC1B98FAB01DB (名称: 数据库理论) 的图书 0 本
+2025-12-30 08:57:54.321 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 F4FBD087EB054CA1896093F172AC33D9 (名称: 数据仓库与数据挖掘) 的图书 0 本
+2025-12-30 08:57:54.359 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 预热分类 A9CFBED0F77746C5BD751F2502FAB2CD (名称: 电子商务 电子政务) 的图书 1 本
+2025-12-30 08:57:54.374 [pool-2-thread-2] INFO  c.g.g.s.impl.CacheWarmUpService - 图书缓存预热完成，耗时: 888ms

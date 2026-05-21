@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gg.goods.mapper.StockMapper">
+    <resultMap id="BaseResultMap" type="com.gg.goods.entity.Stock">
+        <id column="sid" property="sid" jdbcType="VARCHAR"/>
+        <result column="bid" property="bid" jdbcType="VARCHAR"/>
+        <result column="quantity" property="quantity" jdbcType="INTEGER"/>
+        <result column="minQuantity" property="minQuantity" jdbcType="INTEGER"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        sid, bid, quantity, minQuantity, status, updateTime
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from stock
+        where sid = #{sid,jdbcType=VARCHAR}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from stock
+        where sid = #{sid,jdbcType=VARCHAR}
+    </delete>
+
+    <insert id="insert" parameterType="com.gg.goods.entity.Stock">
+        insert into stock (sid, bid, quantity,
+                           minQuantity, status, updateTime)
+        values (#{sid,jdbcType=VARCHAR}, #{bid,jdbcType=VARCHAR}, #{quantity,jdbcType=INTEGER},
+                #{minQuantity,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.gg.goods.entity.Stock">
+        insert into stock
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sid != null">
+                sid,
+            </if>
+            <if test="bid != null">
+                bid,
+            </if>
+            <if test="quantity != null">
+                quantity,
+            </if>
+            <if test="minQuantity != null">
+                minQuantity,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="updateTime != null">
+                updateTime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sid != null">
+                #{sid,jdbcType=VARCHAR},
+            </if>
+            <if test="bid != null">
+                #{bid,jdbcType=VARCHAR},
+            </if>
+            <if test="quantity != null">
+                #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="minQuantity != null">
+                #{minQuantity,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.gg.goods.entity.Stock">
+        update stock
+        <set>
+            <if test="bid != null">
+                bid = #{bid,jdbcType=VARCHAR},
+            </if>
+            <if test="quantity != null">
+                quantity = #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="minQuantity != null">
+                minQuantity = #{minQuantity,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="updateTime != null">
+                updateTime = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where sid = #{sid,jdbcType=VARCHAR}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.gg.goods.entity.Stock">
+        update stock
+        set bid         = #{bid,jdbcType=VARCHAR},
+            quantity    = #{quantity,jdbcType=INTEGER},
+            minQuantity = #{minQuantity,jdbcType=INTEGER},
+            status      = #{status,jdbcType=INTEGER},
+            updateTime  = #{updateTime,jdbcType=TIMESTAMP}
+        where sid = #{sid,jdbcType=VARCHAR}
+    </update>
+
+    <!-- 根据图书ID查询库存 -->
+    <select id="selectByBid" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from stock
+        where bid = #{bid,jdbcType=VARCHAR}
+    </select>
+
+    <!-- 更新库存数量 -->
+    <update id="updateQuantityByBid" parameterType="com.gg.goods.entity.Stock">
+        update stock
+        set quantity   = #{quantity,jdbcType=INTEGER},
+            updateTime = #{updateTime,jdbcType=TIMESTAMP},
+            status     = case when #{quantity,jdbcType=INTEGER} &lt;= #{minQuantity,jdbcType=INTEGER} then 0 else 1 end
+        where bid = #{bid,jdbcType=VARCHAR}
+    </update>
+
+    <!-- 更新库存信息（包括数量、最低预警值和状态）- 管理员专用 -->
+    <update id="updateStockInfo" parameterType="com.gg.goods.entity.Stock">
+        update stock
+        set quantity    = #{quantity,jdbcType=INTEGER},
+            minQuantity = #{minQuantity,jdbcType=INTEGER},
+            status      = #{status,jdbcType=INTEGER},
+            updateTime  = #{updateTime,jdbcType=TIMESTAMP}
+        where bid = #{bid,jdbcType=VARCHAR}
+    </update>
+
+    <!-- 查询所有库存信息 -->
+    <select id="selectAllStocks" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from stock
+        order by updateTime desc
+    </select>
+
+    <!-- 查询库存不足的图书 -->
+    <select id="selectLowStocks" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from stock
+        where quantity &lt; minQuantity
+        order by quantity asc
+    </select>
+
+    <!-- 批量更新库存状态 -->
+    <update id="batchUpdateStockStatus" parameterType="java.util.Map">
+        update stock
+        set status = #{status,jdbcType=INTEGER},
+        updateTime = now()
+        where sid in
+        <foreach collection="sids" item="sid" open="(" close=")" separator=",">
+            #{sid,jdbcType=VARCHAR}
+        </foreach>
+    </update>
+
+    <!-- 根据书名搜索库存 -->
+    <select id="searchStockByBookName" resultMap="BaseResultMap" parameterType="String">
+        select s.sid,
+               s.bid,
+               s.quantity,
+               s.minQuantity,
+               s.status,
+               s.updateTime
+        from stock s
+                 join book b on s.bid = b.bid
+        where b.bname like concat('%', #{keyword}, '%')
+        order by s.updateTime desc
+    </select>
+</mapper>

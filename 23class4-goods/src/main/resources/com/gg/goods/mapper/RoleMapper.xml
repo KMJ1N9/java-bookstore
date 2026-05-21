@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gg.goods.mapper.RoleMapper">
+    <resultMap id="BaseResultMap" type="com.gg.goods.entity.Role">
+        <id column="role_id" jdbcType="VARCHAR" property="roleId"/>
+        <result column="role_name" jdbcType="VARCHAR" property="roleName"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        role_id, role_name, description
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from role
+        where role_id = #{roleId,jdbcType=VARCHAR}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from role
+        where role_id = #{roleId,jdbcType=VARCHAR}
+    </delete>
+
+    <insert id="insert" parameterType="com.gg.goods.entity.Role">
+        insert into role (role_id, role_name, description)
+        values (#{roleId,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.gg.goods.entity.Role">
+        insert into role
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="roleId != null">
+                role_id,
+            </if>
+            <if test="roleName != null">
+                role_name,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="roleId != null">
+                #{roleId,jdbcType=VARCHAR},
+            </if>
+            <if test="roleName != null">
+                #{roleName,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.gg.goods.entity.Role">
+        update role
+        <set>
+            <if test="roleName != null">
+                role_name = #{roleName,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where role_id = #{roleId,jdbcType=VARCHAR}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.gg.goods.entity.Role">
+        update role
+        set role_name   = #{roleName,jdbcType=VARCHAR},
+            description = #{description,jdbcType=VARCHAR}
+        where role_id = #{roleId,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectAllRoles" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from role
+        order by role_id
+    </select>
+
+    <select id="selectRolesByAdminId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select r.role_id,
+               r.role_name,
+               r.description
+        from role r
+                 join admin_role ar on r.role_id = ar.role_id
+        where ar.admin_id = #{adminId,jdbcType=VARCHAR}
+    </select>
+
+    <insert id="insertRolePermissions" parameterType="java.util.List">
+        insert into role_permission (role_id, permission_id)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.roleId,jdbcType=VARCHAR}, #{item.permissionId,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+    <delete id="deleteRolePermissionsByRoleId" parameterType="java.lang.String">
+        delete
+        from role_permission
+        where role_id = #{roleId,jdbcType=VARCHAR}
+    </delete>
+
+    <select id="selectRolePermissionsByRoleId" parameterType="java.lang.String"
+            resultType="com.gg.goods.entity.RolePermission">
+        select role_id       as roleId,
+               permission_id as permissionId
+        from role_permission
+        where role_id = #{roleId,jdbcType=VARCHAR}
+    </select>
+</mapper>

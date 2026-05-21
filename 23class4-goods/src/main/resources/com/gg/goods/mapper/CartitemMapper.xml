@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gg.goods.mapper.CartitemMapper">
+    <resultMap id="BaseResultMap" type="com.gg.goods.entity.Cartitem">
+        <id property="cartitemid" column="cartItemId" jdbcType="CHAR"/>
+        <result property="quantity" column="quantity" jdbcType="INTEGER"/>
+        <result property="bid" column="bid" jdbcType="CHAR"/>
+        <result property="uid" column="uid" jdbcType="CHAR"/>
+        <result property="shunxu" column="shunxu" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cartItemId,quantity,bid,
+        uid,shunxu
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cartitem
+        where cartItemId = #{cartitemid,jdbcType=CHAR}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from cartitem
+        where cartItemId = #{cartitemid,jdbcType=CHAR}
+    </delete>
+    <insert id="insert" parameterType="com.gg.goods.entity.Cartitem">
+        <selectKey resultType="string" keyProperty="cartitemid" order="BEFORE">
+            select upper(replace(uuid(),"-","")) from dual
+        </selectKey>
+        insert into cartitem
+        ( cartItemId, quantity, bid
+        , uid, shunxu)
+        values ( #{cartitemid,jdbcType=CHAR}, #{quantity,jdbcType=INTEGER}, #{bid,jdbcType=CHAR}
+        , #{uid,jdbcType=CHAR}, #{shunxu,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" parameterType="com.gg.goods.entity.Cartitem">
+        insert into cartitem
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="cartitemid != null">
+                cartItemId,
+            </if>
+            <if test="quantity != null">
+                quantity,
+            </if>
+            <if test="bid != null">
+                bid,
+            </if>
+            <if test="uid != null">
+                uid,
+            </if>
+            <if test="shunxu != null">
+                shunxu,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="cartitemid != null">
+                #{cartitemid,jdbcType=CHAR},
+            </if>
+            <if test="quantity != null">
+                #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="bid != null">
+                #{bid,jdbcType=CHAR},
+            </if>
+            <if test="uid != null">
+                #{uid,jdbcType=CHAR},
+            </if>
+            <if test="shunxu != null">
+                #{shunxu,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.gg.goods.entity.Cartitem">
+        update cartitem
+        <set>
+            <if test="quantity != null">
+                quantity = #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="bid != null">
+                bid = #{bid,jdbcType=CHAR},
+            </if>
+            <if test="uid != null">
+                uid = #{uid,jdbcType=CHAR},
+            </if>
+            <if test="shunxu != null">
+                shunxu = #{shunxu,jdbcType=INTEGER},
+            </if>
+        </set>
+        where cartItemId = #{cartitemid,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.gg.goods.entity.Cartitem">
+        update cartitem
+        set quantity = #{quantity,jdbcType=INTEGER},
+            bid      = #{bid,jdbcType=CHAR},
+            uid      = #{uid,jdbcType=CHAR},
+            shunxu   = #{shunxu,jdbcType=INTEGER}
+        where cartItemId = #{cartitemid,jdbcType=CHAR}
+    </update>
+    <resultMap id="CartBookPovoMap" type="com.gg.goods.povos.CartBookPovo">
+        <association property="book" javaType="com.gg.goods.entity.Book">
+            <id property="bid" column="bid" jdbcType="CHAR"/>
+            <result property="bname" column="bname" jdbcType="VARCHAR"/>
+            <result property="currprice" column="currPrice" jdbcType="DECIMAL"/>
+            <result property="imageB" column="image_b" jdbcType="VARCHAR"/>
+        </association>
+        <association property="cartitem" javaType="com.gg.goods.entity.Cartitem">
+            <id property="cartitemid" column="cartItemId" jdbcType="CHAR"/>
+            <result property="quantity" column="quantity" jdbcType="INTEGER"/>
+            <result property="bid" column="bid" jdbcType="CHAR"/>
+            <result property="uid" column="uid" jdbcType="CHAR"/>
+        </association>
+    </resultMap>
+    <select id="selectCartitemBookByUid" resultMap="CartBookPovoMap">
+        SELECT cartitem.cartItemId,
+               cartitem.quantity,
+               cartitem.bid,
+               book.image_b,
+               book.bname,
+               book.currPrice
+        FROM cartitem,
+             book
+        WHERE cartitem.bid = book.bid
+          AND cartitem.uid = #{uid}
+    </select>
+
+    <select id="selectCartitemByUidAndBid" resultMap="BaseResultMap">
+        select *
+        from cartitem
+        where uid = #{uid}
+          and bid = #{bid}
+    </select>
+
+    <delete id="removeCartItem" parameterType="java.lang.String">
+        delete
+        from cartitem
+        where cartItemId = #{cartitemid}
+    </delete>
+
+    <delete id="batchRemoveCartItems">
+        delete from cartitem where cartItemId in
+        <foreach collection="list" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="clearCartByUserId" parameterType="java.lang.String">
+        delete
+        from cartitem
+        where uid = #{uid}
+    </delete>
+
+    <update id="updateCartItemQuantity" parameterType="com.gg.goods.entity.Cartitem">
+        update cartitem
+        set quantity = #{quantity}
+        where cartItemId = #{cartitemid}
+    </update>
+
+    <select id="selectCartitemBookByIds" parameterType="java.util.List" resultMap="CartBookPovoMap">
+        SELECT cartitem.cartItemId,
+        cartitem.quantity,
+        cartitem.bid,
+        book.image_b,
+        book.bname,
+        book.currPrice
+        FROM cartitem,
+        book
+        WHERE cartitem.bid = book.bid
+        AND cartitem.cartItemId in
+        <foreach collection="list" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+</mapper>

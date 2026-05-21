@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gg.goods.mapper.OrderitemMapper">
+    <resultMap id="BaseResultMap" type="com.gg.goods.entity.Orderitem">
+        <id property="orderitemid" column="orderItemId" jdbcType="CHAR"/>
+        <result property="quantity" column="quantity" jdbcType="INTEGER"/>
+        <result property="subtotal" column="subtotal" jdbcType="DECIMAL"/>
+        <result property="bid" column="bid" jdbcType="CHAR"/>
+        <result property="bname" column="bname" jdbcType="VARCHAR"/>
+        <result property="currprice" column="currPrice" jdbcType="DECIMAL"/>
+        <result property="imageB" column="image_b" jdbcType="VARCHAR"/>
+        <result property="oid" column="oid" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        orderItemId,quantity,subtotal,
+        bid,bname,currPrice,
+        image_b,oid
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from orderitem
+        where orderItemId = #{orderitemid,jdbcType=CHAR}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from orderitem
+        where orderItemId = #{orderitemid,jdbcType=CHAR}
+    </delete>
+    <insert id="insert" parameterType="com.gg.goods.entity.Orderitem">
+        insert into orderitem
+        ( orderItemId, quantity, subtotal
+        , bid, bname, currPrice
+        , image_b, oid)
+        values ( #{orderitemid,jdbcType=CHAR}, #{quantity,jdbcType=INTEGER}, #{subtotal,jdbcType=DECIMAL}
+               , #{bid,jdbcType=CHAR}, #{bname,jdbcType=VARCHAR}, #{currprice,jdbcType=DECIMAL}
+               , #{imageB,jdbcType=VARCHAR}, #{oid,jdbcType=CHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.gg.goods.entity.Orderitem">
+        insert into orderitem
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderitemid != null">
+                orderItemId,
+            </if>
+            <if test="quantity != null">
+                quantity,
+            </if>
+            <if test="subtotal != null">
+                subtotal,
+            </if>
+            <if test="bid != null">
+                bid,
+            </if>
+            <if test="bname != null">
+                bname,
+            </if>
+            <if test="currprice != null">
+                currPrice,
+            </if>
+            <if test="imageB != null">
+                image_b,
+            </if>
+            <if test="oid != null">
+                oid,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderitemid != null">
+                #{orderitemid,jdbcType=CHAR},
+            </if>
+            <if test="quantity != null">
+                #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="subtotal != null">
+                #{subtotal,jdbcType=DECIMAL},
+            </if>
+            <if test="bid != null">
+                #{bid,jdbcType=CHAR},
+            </if>
+            <if test="bname != null">
+                #{bname,jdbcType=VARCHAR},
+            </if>
+            <if test="currprice != null">
+                #{currprice,jdbcType=DECIMAL},
+            </if>
+            <if test="imageB != null">
+                #{imageB,jdbcType=VARCHAR},
+            </if>
+            <if test="oid != null">
+                #{oid,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.gg.goods.entity.Orderitem">
+        update orderitem
+        <set>
+            <if test="quantity != null">
+                quantity = #{quantity,jdbcType=INTEGER},
+            </if>
+            <if test="subtotal != null">
+                subtotal = #{subtotal,jdbcType=DECIMAL},
+            </if>
+            <if test="bid != null">
+                bid = #{bid,jdbcType=CHAR},
+            </if>
+            <if test="bname != null">
+                bname = #{bname,jdbcType=VARCHAR},
+            </if>
+            <if test="currprice != null">
+                currPrice = #{currprice,jdbcType=DECIMAL},
+            </if>
+            <if test="imageB != null">
+                image_b = #{imageB,jdbcType=VARCHAR},
+            </if>
+            <if test="oid != null">
+                oid = #{oid,jdbcType=CHAR},
+            </if>
+        </set>
+        where orderItemId = #{orderitemid,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.gg.goods.entity.Orderitem">
+        update orderitem
+        set quantity  = #{quantity,jdbcType=INTEGER},
+            subtotal  = #{subtotal,jdbcType=DECIMAL},
+            bid       = #{bid,jdbcType=CHAR},
+            bname     = #{bname,jdbcType=VARCHAR},
+            currPrice = #{currprice,jdbcType=DECIMAL},
+            image_b   = #{imageB,jdbcType=VARCHAR},
+            oid       = #{oid,jdbcType=CHAR}
+        where orderItemId = #{orderitemid,jdbcType=CHAR}
+    </update>
+
+    <!-- 根据订单ID查询订单项列表 -->
+    <select id="selectByOid" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from orderitem
+        where oid = #{oid,jdbcType=CHAR}
+    </select>
+
+    <!-- 批量插入订单项 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into orderitem
+        (orderItemId, quantity, subtotal, bid, bname, currPrice, image_b, oid)
+        values
+        <foreach collection="list" item="orderitem" separator=",">
+            (#{orderitem.orderitemid,jdbcType=CHAR}, #{orderitem.quantity,jdbcType=INTEGER},
+            #{orderitem.subtotal,jdbcType=DECIMAL}, #{orderitem.bid,jdbcType=CHAR},
+            #{orderitem.bname,jdbcType=VARCHAR}, #{orderitem.currprice,jdbcType=DECIMAL},
+            #{orderitem.imageB,jdbcType=VARCHAR}, #{orderitem.oid,jdbcType=CHAR})
+        </foreach>
+    </insert>
+</mapper>

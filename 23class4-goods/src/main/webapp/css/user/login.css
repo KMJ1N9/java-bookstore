@@ -1,0 +1,430 @@
+/* 全局样式重置和基础设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* 主容器样式 */
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+}
+
+/* 图片区域 */
+.imageDiv {
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 登录表单区域 */
+.login1 {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    border: none;
+}
+
+.login2 {
+    width: 100%;
+    padding: 0;
+    background-color: transparent;
+    margin: 0;
+}
+
+/* 登录标题区域 */
+.loginTopDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 30px 0;
+}
+
+.loginTop {
+    color: #2c3e50;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* 注册按钮 */
+.registBtn {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    width: auto;
+    height: auto;
+}
+
+.registBtn:hover {
+    background: linear-gradient(135deg, #2980b9, #1c6ea4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* 表单样式 */
+#loginForm {
+    padding: 30px;
+}
+
+/* 错误信息显示区域 */
+#msg {
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 12px;
+    background-color: #fdf2f2;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #e74c3c;
+    border: 1px solid #f5c6cb;
+}
+
+#msg:empty {
+    display: none;
+}
+
+/* 表单组样式 */
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* 验证码输入区域特殊样式 */
+.verify-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 输入框样式 */
+.input {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.input::placeholder {
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* 验证码输入框 */
+.yzm {
+    width: 120px;
+    flex-shrink: 0;
+}
+
+/* 验证码图片 */
+#vCode {
+    width: 90px;
+    height: 38px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+#vCode:hover {
+    border-color: #3498db;
+    transform: scale(1.05);
+}
+
+/* 验证码链接 */
+#verifyCodeA {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+#verifyCodeA:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* 错误提示 */
+label.error {
+    color: #e74c3c;
+    font-size: 12px;
+    font-weight: normal;
+    display: block;
+    margin-top: 5px;
+    padding-left: 2px;
+}
+
+/* 表单操作区域 */
+.form-actions {
+    margin-top: 25px;
+}
+
+/* 登录按钮 */
+.loginBtn {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.loginBtn:hover {
+    background: linear-gradient(135deg, #27ae60, #219653);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(46, 204, 113, 0.3);
+}
+
+.loginBtn:active {
+    transform: translateY(0);
+}
+
+.loginBtn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 表单底部 */
+.form-footer {
+    margin-top: 15px;
+    text-align: right;
+}
+
+/* 忘记密码链接 */
+.forgotPassword {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+.forgotPassword:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* 输入框焦点和错误状态动画效果 */
+.input:focus {
+    animation: focusPulse 0.3s ease;
+}
+
+@keyframes focusPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(52, 152, 219, 0.1);
+    }
+    100% {
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+}
+
+/* 响应式设计 - 平板设备 */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .imageDiv {
+        margin-right: 0;
+        margin-bottom: 30px;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .login1 {
+        max-width: 100%;
+    }
+
+    .loginTopDiv {
+        padding: 25px 25px 0;
+    }
+
+    .loginTop {
+        font-size: 22px;
+    }
+
+    #loginForm {
+        padding: 25px;
+    }
+}
+
+/* 响应式设计 - 移动设备 */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+        min-height: 100vh;
+    }
+
+    .main {
+        padding: 10px;
+    }
+
+    .imageDiv {
+        display: none; /* 在小屏设备上隐藏图片，专注于表单 */
+    }
+
+    .login1 {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .loginTopDiv {
+        padding: 20px 20px 0;
+    }
+
+    .loginTop {
+        font-size: 20px;
+    }
+
+    .registBtn {
+        padding: 6px 16px;
+        font-size: 13px;
+    }
+
+    #loginForm {
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .input {
+        height: 40px;
+        font-size: 13px;
+    }
+
+    .verify-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .yzm {
+        width: 100%;
+        max-width: 150px;
+    }
+
+    #vCode {
+        width: 100px;
+        height: 40px;
+    }
+
+    .form-actions {
+        margin-top: 20px;
+    }
+
+    .loginBtn {
+        height: 42px;
+        font-size: 15px;
+    }
+
+    .form-footer {
+        text-align: center;
+        margin-top: 18px;
+    }
+
+    .forgotPassword {
+        font-size: 13px;
+    }
+}
+
+/* 响应式设计 - 超小屏幕设备 */
+@media (max-width: 320px) {
+    .loginTopDiv {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .registBtn {
+        width: 100%;
+    }
+
+    #loginForm {
+        padding: 15px;
+    }
+
+    .loginBtn {
+        height: 40px;
+        font-size: 14px;
+    }
+}

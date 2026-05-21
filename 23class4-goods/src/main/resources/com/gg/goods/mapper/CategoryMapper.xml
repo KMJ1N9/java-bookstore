@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gg.goods.mapper.CategoryMapper">
+    <resultMap id="BaseResultMap" type="com.gg.goods.entity.Category">
+        <id property="cid" column="cid" jdbcType="CHAR"/>
+        <result property="cname" column="cname" jdbcType="VARCHAR"/>
+        <result property="pid" column="pid" jdbcType="CHAR"/>
+        <result property="miaoshu" column="miaoshu" jdbcType="VARCHAR"/>
+        <result property="shunxu" column="shunxu" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cid,cname,pid,
+        miaoshu,shunxu
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from category
+        where cid = #{cid,jdbcType=CHAR}
+    </select>
+
+
+    <resultMap id="CategoryPovoMap" type="com.gg.goods.povos.CategoryPovo">
+        <association property="dad" javaType="com.gg.goods.entity.Category">
+            <id property="cid" column="cid" jdbcType="CHAR"/>
+            <result property="cname" column="cname" jdbcType="VARCHAR"/>
+            <result property="pid" column="pid" jdbcType="CHAR"/>
+            <result property="miaoshu" column="miaoshu" jdbcType="VARCHAR"/>
+            <result property="shunxu" column="shunxu" jdbcType="INTEGER"/>
+        </association>
+
+
+        <collection property="children" ofType="com.gg.goods.entity.Category"
+                    select="selectCategoryByPid" column="cid">
+            <id property="cid" column="cid" jdbcType="CHAR"/>
+            <result property="cname" column="cname" jdbcType="VARCHAR"/>
+            <result property="pid" column="pid" jdbcType="CHAR"/>
+            <result property="miaoshu" column="miaoshu" jdbcType="VARCHAR"/>
+            <result property="shunxu" column="shunxu" jdbcType="INTEGER"/>
+        </collection>
+    </resultMap>
+    <!--主发射器  SQL -->
+    <select id="selectCategoryPovos" resultMap="CategoryPovoMap">
+        select *
+        from category
+        where pid is NULL
+    </select>
+    <!--从发射器 SQL -->
+    <select id="selectCategoryByPid" resultType="com.gg.goods.entity.Category">
+        SELECT * FROM category
+        <where>
+            <if test="pid == null">
+                pid IS NULL
+            </if>
+            <if test="pid != null">
+                pid = #{pid}
+            </if>
+        </where>
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from category
+        where cid = #{cid,jdbcType=CHAR}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.gg.goods.entity.Category"
+            useGeneratedKeys="true">
+        insert into category
+        ( cid, cname, pid
+        , miaoshu, shunxu)
+        values ( #{cid,jdbcType=CHAR}, #{cname,jdbcType=VARCHAR}, #{pid,jdbcType=CHAR}
+               , #{miaoshu,jdbcType=VARCHAR}, #{shunxu,jdbcType=INTEGER})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.gg.goods.entity.Category"
+            useGeneratedKeys="true">
+        insert into category
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="cid != null">
+                cid,
+            </if>
+            <if test="cname != null">
+                cname,
+            </if>
+            <if test="pid != null">
+                pid,
+            </if>
+            <if test="miaoshu != null">
+                miaoshu,
+            </if>
+            <if test="shunxu != null">
+                shunxu,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="cid != null">
+                #{cid,jdbcType=CHAR},
+            </if>
+            <if test="cname != null">
+                #{cname,jdbcType=VARCHAR},
+            </if>
+            <if test="pid != null">
+                #{pid,jdbcType=CHAR},
+            </if>
+            <if test="miaoshu != null">
+                #{miaoshu,jdbcType=VARCHAR},
+            </if>
+            <if test="shunxu != null">
+                #{shunxu,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.gg.goods.entity.Category">
+        update category
+        <set>
+            <if test="cname != null">
+                cname = #{cname,jdbcType=VARCHAR},
+            </if>
+            <if test="pid != null">
+                pid = #{pid,jdbcType=CHAR},
+            </if>
+            <if test="miaoshu != null">
+                miaoshu = #{miaoshu,jdbcType=VARCHAR},
+            </if>
+            <if test="shunxu != null">
+                shunxu = #{shunxu,jdbcType=INTEGER},
+            </if>
+        </set>
+        where cid = #{cid,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.gg.goods.entity.Category">
+        update category
+        set cname   = #{cname,jdbcType=VARCHAR},
+            pid     = #{pid,jdbcType=CHAR},
+            miaoshu = #{miaoshu,jdbcType=VARCHAR},
+            shunxu  = #{shunxu,jdbcType=INTEGER}
+        where cid = #{cid,jdbcType=CHAR}
+    </update>
+</mapper>

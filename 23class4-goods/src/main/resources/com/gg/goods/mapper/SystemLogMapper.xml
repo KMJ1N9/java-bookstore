@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gg.goods.mapper.SystemLogMapper">
+    <!-- 基础结果映射 -->
+    <resultMap id="BaseResultMap" type="com.gg.goods.entity.SystemLog">
+        <id column="id" property="id"/>
+        <result column="operate_time" property="operateTime"/>
+        <result column="operator" property="operator"/>
+        <result column="action" property="action"/>
+        <result column="status" property="status"/>
+        <result column="business_id" property="businessId"/>
+        <result column="ip" property="ip"/>
+    </resultMap>
+
+    <!-- 基础列名 -->
+    <sql id="Base_Column_List">
+        id, operate_time, operator, action, status, business_id, ip
+    </sql>
+
+    <!-- 插入系统日志 -->
+    <insert id="insert" parameterType="com.gg.goods.entity.SystemLog">
+        INSERT INTO system_log
+            (id, operate_time, operator, action, status, business_id, ip)
+        VALUES (#{id}, #{operateTime}, #{operator}, #{action}, #{status}, #{businessId}, #{ip})
+    </insert>
+
+    <!-- 根据日期范围查询系统日志 -->
+    <select id="selectByDateRange" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM system_log
+        WHERE operate_time BETWEEN #{startDate} AND #{endDate}
+        ORDER BY operate_time DESC
+        LIMIT #{limit}
+    </select>
+
+    <!-- 查询最近的系统日志 -->
+    <select id="selectRecentLogs" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM system_log
+        ORDER BY operate_time DESC
+        LIMIT #{limit}
+    </select>
+
+    <!-- 根据操作用户查询日志 -->
+    <select id="selectByOperator" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM system_log
+        WHERE operator = #{operator}
+        ORDER BY operate_time DESC
+        LIMIT #{limit}
+    </select>
+</mapper>

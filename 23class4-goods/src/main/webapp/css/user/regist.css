@@ -1,0 +1,379 @@
+/* 全局样式重置和基础设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 主容器样式 */
+#divMain {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* 标题区域 */
+#divTitle {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    line-height: 50px;
+    height: 50px;
+    padding: 0 20px;
+    border: none;
+}
+
+#spanTitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 0;
+}
+
+/* 表单区域 */
+#divBody {
+    padding: 30px;
+    width: 100%;
+    height: auto;
+    border: none;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 表单样式 */
+form {
+    width: 100%;
+}
+
+/* 表单组样式 - 桌面端 */
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    min-height: 60px;
+}
+
+/* 标签单元格 */
+.tdText {
+    width: 25%;
+    text-align: right;
+    padding-right: 20px;
+    font-weight: 500;
+    color: #555;
+    white-space: nowrap;
+}
+
+/* 输入框单元格 */
+.tdInput {
+    width: 40%;
+}
+
+/* 错误信息单元格 */
+.tdError {
+    width: 35%;
+    padding-left: 15px;
+}
+
+/* 输入框样式 */
+.inputClass {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.inputClass:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    animation: focusPulse 0.3s ease;
+}
+
+.inputClass::placeholder {
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* 验证码区域样式 */
+#tdVerifyCode {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 验证码输入框 */
+#tdVerifyCode .inputClass {
+    flex: 1;
+}
+
+/* 验证码图片容器 */
+#divVerifyCode {
+    display: flex;
+    align-items: center;
+}
+
+/* 验证码图片样式 */
+#imgVerifyCode {
+    width: 100px;
+    height: 36px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#imgVerifyCode:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 提交按钮区域 */
+.form-group:last-child {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 验证码刷新链接 */
+.tdError a {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.tdError a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* 提交按钮 */
+#submitBtn {
+    width: 180px;
+    height: 45px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    box-shadow: 0 4px 12px rgba(79, 172, 254, 0.3);
+    display: block;
+    margin: 20px auto 0;
+}
+
+#submitBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(79, 172, 254, 0.4);
+}
+
+#submitBtn:active {
+    transform: translateY(0);
+}
+
+/* 错误提示样式 */
+.errorClass {
+    background: #fdf2f2 url(/goods/images/error.png) no-repeat 10px center;
+    color: #e74c3c;
+    font-size: 13px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 8px 12px 8px 35px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* 成功提示样式 */
+.rightClass {
+    background: #d4edda url(/goods/images/right.jpg) no-repeat 10px center;
+    color: #28a745;
+    font-size: 13px;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    padding: 8px 12px 8px 35px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* 输入框焦点动画效果 */
+@keyframes focusPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(102, 126, 234, 0.1);
+    }
+    100% {
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+}
+
+/* 响应式设计 - 平板设备 (768px以下) */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    #divMain {
+        max-width: 100%;
+    }
+
+    #divBody {
+        padding: 20px;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 25px;
+    }
+
+    .tdText {
+        width: 100%;
+        text-align: left;
+        padding-right: 0;
+        margin-bottom: 8px;
+    }
+
+    .tdInput {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .tdError {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    #submitBtn {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    #spanTitle {
+        font-size: 18px;
+    }
+}
+
+/* 响应式设计 - 移动设备 (480px以下) */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    #divBody {
+        padding: 15px;
+    }
+
+    .inputClass {
+        height: 40px;
+        font-size: 15px; /* 增加字体大小，更适合移动端 */
+    }
+
+    .inputClass::placeholder {
+        font-size: 15px;
+    }
+
+    #spanTitle {
+        font-size: 16px;
+    }
+
+    #imgVerifyCode {
+        width: 100px;
+        height: 36px;
+    }
+
+    #submitBtn {
+        width: 100%;
+        height: 42px;
+        font-size: 15px;
+    }
+}
+
+/* 响应式设计 - 小屏幕手机 (375px以下) */
+@media screen and (max-width: 375px) {
+    #divTitle {
+        height: 45px;
+        line-height: 45px;
+        padding: 0 15px;
+    }
+
+    #spanTitle {
+        font-size: 15px;
+    }
+
+    #divBody {
+        padding: 12px;
+        min-height: 450px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .inputClass {
+        height: 38px;
+        font-size: 14px;
+    }
+
+    #imgVerifyCode {
+        width: 90px;
+        height: 34px;
+    }
+
+    #submitBtn {
+        height: 40px;
+        font-size: 14px;
+        border-radius: 20px;
+    }
+}
+
+/* 响应式设计 - 最小屏幕手机 (320px以下) */
+@media screen and (max-width: 320px) {
+    body {
+        padding: 5px;
+    }
+
+    #divBody {
+        padding: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    #imgVerifyCode {
+        width: 80px;
+        height: 32px;
+    }
+
+    #submitBtn {
+        height: 38px;
+        font-size: 13px;
+    }
+}

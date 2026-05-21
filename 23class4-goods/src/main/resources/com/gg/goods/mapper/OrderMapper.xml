@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gg.goods.mapper.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.gg.goods.entity.Order">
+        <id property="oid" column="oid" jdbcType="CHAR"/>
+        <result property="ordertime" column="ordertime" jdbcType="TIMESTAMP"/>
+        <result property="total" column="total" jdbcType="DECIMAL"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="uid" column="uid" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        oid,ordertime,total,
+        status,address,uid
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `order`
+        where oid = #{oid,jdbcType=CHAR}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from `order`
+        where oid = #{oid,jdbcType=CHAR}
+    </delete>
+    <insert id="insert" parameterType="com.gg.goods.entity.Order">
+        insert into `order`
+        ( oid, ordertime, total
+        , status, address, uid)
+        values ( #{oid,jdbcType=CHAR}, #{ordertime,jdbcType=TIMESTAMP}, #{total,jdbcType=DECIMAL}
+               , #{status,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{uid,jdbcType=CHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.gg.goods.entity.Order">
+        insert into `order`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="oid != null">
+                oid,
+            </if>
+            <if test="ordertime != null">
+                ordertime,
+            </if>
+            <if test="total != null">
+                total,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="uid != null">
+                uid,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="oid != null">
+                #{oid,jdbcType=CHAR},
+            </if>
+            <if test="ordertime != null">
+                #{ordertime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="total != null">
+                #{total,jdbcType=DECIMAL},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="uid != null">
+                #{uid,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.gg.goods.entity.Order">
+        update `order`
+        <set>
+            <if test="ordertime != null">
+                ordertime = #{ordertime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="total != null">
+                total = #{total,jdbcType=DECIMAL},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="uid != null">
+                uid = #{uid,jdbcType=CHAR},
+            </if>
+        </set>
+        where oid = #{oid,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.gg.goods.entity.Order">
+        update `order`
+        set ordertime = #{ordertime,jdbcType=TIMESTAMP},
+            total     = #{total,jdbcType=DECIMAL},
+            status    = #{status,jdbcType=INTEGER},
+            address   = #{address,jdbcType=VARCHAR},
+            uid       = #{uid,jdbcType=CHAR}
+        where oid = #{oid,jdbcType=CHAR}
+    </update>
+
+    <!-- 根据用户ID查询订单列表 -->
+    <!-- 定义订单结果映射，包含订单项列表 -->
+    <resultMap id="OrderWithItemsResultMap" type="com.gg.goods.entity.Order">
+        <id column="oid" property="oid"/>
+        <result column="ordertime" property="ordertime"/>
+        <result column="total" property="total"/>
+        <result column="status" property="status"/>
+        <result column="address" property="address"/>
+        <result column="uid" property="uid"/>
+        <!-- 一对多关系映射 -->
+        <collection property="orderItems" ofType="com.gg.goods.entity.Orderitem">
+            <id column="orderitemid" property="orderitemid"/>
+            <result column="quantity" property="quantity"/>
+            <result column="subtotal" property="subtotal"/>
+            <result column="bid" property="bid"/>
+            <result column="bname" property="bname"/>
+            <result column="currprice" property="currprice"/>
+            <result column="image_b" property="imageB"/>
+            <result column="oid" property="oid"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectByUid" parameterType="java.lang.String" resultMap="OrderWithItemsResultMap">
+        select o.oid,
+               o.ordertime,
+               o.total,
+               o.status,
+               o.address,
+               o.uid,
+               oi.orderitemid,
+               oi.quantity,
+               oi.subtotal,
+               oi.bid,
+               oi.bname,
+               oi.currprice,
+               oi.image_b
+        from `order` o
+                 left join orderitem oi on o.oid = oi.oid
+        where o.uid = #{uid,jdbcType=CHAR}
+        order by o.ordertime desc
+    </select>
+
+    <!-- 查询所有订单 -->
+    <select id="selectAllOrders" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `order`
+        order by ordertime desc
+    </select>
+
+    <!-- 根据订单ID查询订单详情 -->
+    <select id="selectByOid" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `order`
+        where oid = #{oid,jdbcType=CHAR}
+    </select>
+
+    <!-- 根据订单ID更新订单状态 -->
+    <update id="updateStatus">
+        update `order`
+        set status = #{status,jdbcType=INTEGER}
+        where oid = #{oid,jdbcType=CHAR}
+    </update>
+
+    <!-- 根据订单ID更新收货地址 -->
+    <update id="updateAddress">
+        update `order`
+        set address = #{address,jdbcType=VARCHAR}
+        where oid = #{oid,jdbcType=CHAR}
+    </update>
+
+    <!-- 根据日期范围查询订单列表 -->
+    <select id="selectOrdersByDateRange" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `order`
+        where ordertime &gt;= #{startDate,jdbcType=TIMESTAMP} and ordertime &lt;= #{endDate,jdbcType=TIMESTAMP}
+        order by ordertime desc
+    </select>
+
+    <!-- 查询指定日期的订单统计信息 -->
+    <select id="selectOrderStatsByDate" parameterType="java.util.Map" resultType="java.util.Map">
+        select count(*)            as orderCount,
+               sum(total)          as totalSales,
+               count(distinct uid) as userCount
+        from `order`
+        where ordertime &gt;= #{startTime,jdbcType=TIMESTAMP}
+          and ordertime &lt;= #{endTime,jdbcType=TIMESTAMP}
+    </select>
+</mapper>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gg.goods.mapper.PermissionMapper">
+    <resultMap id="BaseResultMap" type="com.gg.goods.entity.Permission">
+        <id column="permission_id" jdbcType="VARCHAR" property="permissionId"/>
+        <result column="permission_name" jdbcType="VARCHAR" property="permissionName"/>
+        <result column="permission_code" jdbcType="VARCHAR" property="permissionCode"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="module" jdbcType="VARCHAR" property="module"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        permission_id, permission_name, permission_code, description, module
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from permission
+        where permission_id = #{permissionId,jdbcType=VARCHAR}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from permission
+        where permission_id = #{permissionId,jdbcType=VARCHAR}
+    </delete>
+
+    <insert id="insert" parameterType="com.gg.goods.entity.Permission">
+        insert into permission (permission_id, permission_name, permission_code, description, module)
+        values (#{permissionId,jdbcType=VARCHAR}, #{permissionName,jdbcType=VARCHAR},
+                #{permissionCode,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{module,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.gg.goods.entity.Permission">
+        insert into permission
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="permissionId != null">
+                permission_id,
+            </if>
+            <if test="permissionName != null">
+                permission_name,
+            </if>
+            <if test="permissionCode != null">
+                permission_code,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="module != null">
+                module,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="permissionId != null">
+                #{permissionId,jdbcType=VARCHAR},
+            </if>
+            <if test="permissionName != null">
+                #{permissionName,jdbcType=VARCHAR},
+            </if>
+            <if test="permissionCode != null">
+                #{permissionCode,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="module != null">
+                #{module,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.gg.goods.entity.Permission">
+        update permission
+        <set>
+            <if test="permissionName != null">
+                permission_name = #{permissionName,jdbcType=VARCHAR},
+            </if>
+            <if test="permissionCode != null">
+                permission_code = #{permissionCode,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="module != null">
+                module = #{module,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where permission_id = #{permissionId,jdbcType=VARCHAR}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.gg.goods.entity.Permission">
+        update permission
+        set permission_name = #{permissionName,jdbcType=VARCHAR},
+            permission_code = #{permissionCode,jdbcType=VARCHAR},
+            description     = #{description,jdbcType=VARCHAR},
+            module          = #{module,jdbcType=VARCHAR}
+        where permission_id = #{permissionId,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectAllPermissions" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from permission
+        order by module, permission_id
+    </select>
+
+    <select id="selectPermissionsByRoleId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select p.permission_id,
+               p.permission_name,
+               p.permission_code,
+               p.description,
+               p.module
+        from permission p
+                 join role_permission rp on p.permission_id = rp.permission_id
+        where rp.role_id = #{roleId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectPermissionsByAdminId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select distinct p.permission_id,
+                        p.permission_name,
+                        p.permission_code,
+                        p.description,
+                        p.module
+        from permission p
+                 join role_permission rp on p.permission_id = rp.permission_id
+                 join admin_role ar on rp.role_id = ar.role_id
+        where ar.admin_id = #{adminId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectPermissionsByModule" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from permission
+        where module = #{module,jdbcType=VARCHAR}
+        order by permission_id
+    </select>
+</mapper>
